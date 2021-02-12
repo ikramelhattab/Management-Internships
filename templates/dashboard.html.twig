@@ -1,0 +1,46 @@
+{#  fichier contenu de dashboard  #}
+
+{% extends 'base.html.twig'%}
+{% block body %}
+
+
+<table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">specialite</th>
+            <th scope="col">technologie</th>
+            <th scope="col">description</th>
+            <th scope="col">duree</th>
+            <th scope="col">encadrant</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+          {% for pfa in pfas %}
+            <tr> 
+                <th>{{pfa.id}}</th>
+                <th>{{pfa.specialite}}</th>
+                <th>{{pfa.technologie}}</th>
+                <th>{{pfa.description}}</th>
+                <th>{{pfa.duree}}</th>
+                 <th>{{pfa.encadrant}}</th>
+                 
+                <th>
+                 <a href="">
+                        <button type="button" class="btn btn-primary">plus de détails</button>
+                    </a>
+                    <a href="">
+                        <button type="button" class="btn btn-warning">Modification</button>
+                    </a>
+                    <a href="">
+                        <button type="button" class="btn btn-danger">Supprimer</button>
+                    </a>
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

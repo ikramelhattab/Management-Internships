@@ -1,0 +1,55 @@
+{# intégrer code de l'entete dans le fichier _header.html.twig    #}
+
+{% include "_header.html.twig" %}
+
+{#   title de page  #}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<br><br>
+    <h1>Categoreis index</h1>
+{#   table de liste de categorie  #}
+
+<br>
+    <table class="table">
+        <thead>
+            <tr>
+            {#   les champs de categorie  #}
+
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        {#   affichage  la liste de id et nom de tous categories dans le tab à partir de tab categoreis #}
+
+        {% for categorei in categoreis %}
+            <tr>
+                <td>{{ categorei.id }}</td>
+                <td>{{ categorei.name }}</td>
+                <td>
+         {#  afficher la categorie choisie  #}
+
+                    <a href="{{ path('categoreis_show', {'id': categorei.id}) }}">show</a>
+        {#  modifier la categorie choisie  #}
+
+                    <a href="{{ path('categoreis_edit', {'id': categorei.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {#  ajouter nouvelle la categorie choisie  #}
+
+    <a href="{{ path('categoreis_new') }}">Create new</a>
+{% endblock %}
+{# intégrer code de pied dans le fichier _footer.html.twig    #}
+
+{% include '_footer.html.twig' %}

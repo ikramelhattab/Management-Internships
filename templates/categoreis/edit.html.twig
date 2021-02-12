@@ -1,0 +1,26 @@
+
+{# intégrer code de l'entete dans le fichier _header.html.twig    #}
+{% include "_header.html.twig" %}
+
+{#   title de page  #}
+{% block title %}{% endblock %}
+
+{% block body %}
+
+{#   title de form  #}
+<br><br>
+    <h1>Edit Categoreis</h1>
+    <br>
+{# intégrer code de formulaire dans le fichier categoreis/_form.html.twig pour modifier   #}
+
+    {{ include('categoreis/_form.html.twig', {'button_label': 'Update'}) }}
+{# retour à la liste de categories    #}
+
+    <a href="{{ path('categoreis_index') }}">back to list</a>
+{# intégrer code de formulaire dans le fichier ccategoreis/_delete_form.html.twig pour supprimer categoreis  #}
+
+    {{ include('categoreis/_delete_form.html.twig') }}
+{% endblock %}
+
+{# intégrer code de pied dans le fichier _footer.html.twig    #}
+{% include '_footer.html.twig' %}

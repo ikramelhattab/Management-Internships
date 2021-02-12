@@ -1,0 +1,62 @@
+{# intégrer code de l'entete dans le fichier _header.html.twig    #}
+
+{% include "_header.html.twig" %}
+{#   title de page  #}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<br><br>
+    <h1>Projet index</h1>
+{#   table de liste de projet  #}
+ <br>
+    <table class="table">
+        <thead>
+            <tr>
+                        {#   les champs de projet  #}
+
+                <th>Id</th>
+                <th>Specialite</th>
+                <th>Technologie</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Duree</th>
+                <th>Encadrant</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+                {#   affichage  la liste de valeur de champs de tous projets dans le tab à partir de tab projet #}
+
+        {% for projet in projets %}
+            <tr>
+                <td>{{ projet.id }}</td>
+                <td>{{ projet.specialite }}</td>
+                <td>{{ projet.technologie }}</td>
+                <td>{{ projet.description }}</td>
+                <td>{{ projet.image }}</td>
+                <td>{{ projet.duree }}</td>
+                <td>{{ projet.encadrant }}</td>
+                <td>
+                         {#  afficher la categorie selectioné  #}
+
+                    <a href="{{ path('projet_show', {'id': projet.id}) }}">show</a>
+                            {#  modifier la projet choisie  #}
+
+                    <a href="{{ path('projet_edit', {'id': projet.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        {#  ajouter nouveau la projet choisie  #}
+
+    <a href="{{ path('projet_new') }}">Create new</a>
+{% endblock %}
+{# intégrer code de pied dans le fichier _footer.html.twig    #}
+
+{% include '_footer.html.twig' %}

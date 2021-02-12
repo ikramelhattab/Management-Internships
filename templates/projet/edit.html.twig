@@ -1,0 +1,27 @@
+{# intégrer code de l'entete dans le fichier _header.html.twig    #}
+
+{% include "_header.html.twig" %}
+{#   title de page  #}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+{#   title de form  #}
+<br><br>
+    <h1>Edit Projet</h1>
+
+    <br>
+{# intégrer code de formulaire dans le fichier projet/_form.html.twig pour modifier   #}
+
+    {{ include('projet/_form.html.twig', {'button_label': 'Update'}) }}
+{# retour à la liste de projets   #}
+
+    <a href="{{ path('projet_index') }}">back to list</a>
+{# intégrer code de formulaire dans le fichier projet/_delete_form.html.twig pour supprimer projets  #}
+
+    {{ include('projet/_delete_form.html.twig') }}
+{% endblock %}
+{# intégrer code de pied dans le fichier _footer.html.twig    #}
+
+{% include '_footer.html.twig' %}
